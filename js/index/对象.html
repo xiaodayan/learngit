@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = [];
+        var Obj = {
+
+            uname: 'keke',
+            type: '阿拉斯加犬',
+            year: 5,
+            color: 'red',
+            skill: str['bark', 'showFilm'],
+            sayHi: function () {
+                console.log('旺旺');
+            }
+        }
+        console.log(Obj.uname);
+        console.log(Obj.sayHi());
+
+        // 运用new进行对象的创建
+        var mingren = new Object();
+        mingren.name = 'mingren';
+        mingren.year = 19;
+        mingren.skill = function () {
+            console.log('我会飞');
+        }
+        console.log(mingren.name);
+        console.log(mingren.skill);
+
+        // 构造函数创建对象
+        function Star(name, age, sex) {
+            this.uname = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        var ldh = Star('刘德华', 18, '男');
+        console.log(ldh.uname);
+        console.log(ldh.age);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

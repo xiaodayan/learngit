@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        num1 = prompt("请输入一个数值");
+        function getsum(are) {
+            are += 3.01;
+            return are;
+        }
+        alert('总和是' + getsum(parseFloat(num1)));
+
+        // 写一个函数实现翻转所有数字的函数
+        function turned() {
+            var temp = [];
+            for (var i = 0; i < arguments.length; i++) {
+                temp[i] = arguments[arguments.length - i];
+            }
+            // if (arguments instanceof Array) {
+            //     return temp1;
+            // }
+            // else {
+            //     alert("这不是一个数组");
+            // }
+        }
+        var temp1 = turned(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        console.log(temp1);
+        // temp1.reverse();
+        console.log(temp1 instanceof Array);
+
+        // H5新增加的放大Array.isArray()
+        console.log(Array.isArray(temp1));
+
+        //写一个函数实现对数字数组的排列
+        function inline(argumen) {
+            var temp = 0;
+            for (var i = 0; i < argumen.length - 1; i++) {
+                for (var j = 0; j < argumen.length - 1 - i; j++) {
+                    if (argumen[j] > argumen[j + 1]) {
+                        temp = argumen[j];
+                        argumen[j] = argumen[j + 1];
+                        argumen[j + 1] = temp;
+                    }
+                }
+            }
+            return argumen;
+        }
+        var str = [1, 5, 13, 6, 7, 5, 18, 5341, 9];
+        var turnnn = inline(str);
+        console.log(turnnn);
+
+        // 构造一个函数学生 包括姓名 学号 年龄 和特长
+        function Student(uname, num, uyear, skill1) {
+            this.name = uname;
+            this.number = num;
+            this.year = uyear;
+            this.skill = function (skill1) {
+                console.log(skill1);
+            }
+        }
+        ldh = new Student('刘德华', 201110293, 18, 'sing');
+        console.log(ldh.name);
+        console.log(ldh.number);
+        ldh.skill('sing');
+
+
+        // 对象 函数 构建函数
+        // 这三个其实差不多 第一对象就是新建了个数据类型 专门特指一类 其中格式 var obj = {} 和 var obj = new Object {}
+        // 那么 韩式和构建函数其实差不多 都是函数来的 只不过一个的服务对像是用来执行某一个操作的 一个是方便构建多个对象的
+        var assr = [1, 2, 3, 4, 5, 6, 7, 8];
+        console.log(assr.reverse());
+        assr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(assr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

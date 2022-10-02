@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 替换和字符转换为数组
+        var str = 'aabdsnkln';
+        var index = str.indexOf('a');
+        while (index !== -1) {
+            str = str.replace('a', 'H');
+            index = str.indexOf('a');
+        }
+        console.log(str);
+
+        var new2 = 'a,v,d,s,a,d'
+        console.log(new2.split(','));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input {
+        width: 100px;
+        height: 20px;
+        color: rgba(80, 80, 80, );
+    }
+</style>
+
+<body>
+    <input type="text" id="q" value="用户名">
+    <input type="text" id="d" value="密码">
+</body>
+<script>
+    var yonghu = document.querySelector('#q');
+    var mima = document.querySelector('#d');
+    yonghu.onfocus = function () {
+        this.value = '';
+    };
+    yonghu.onblur = function () {
+        this.value = '用户名';
+    };
+    mima.onfocus = function () {
+        this.value = '';
+    };
+    mima.onblur = function () {
+        this.value = '密码';
+    };
+
+</script>
+
+</html>
