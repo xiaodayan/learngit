@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .box {
+        position: relative;
+        margin: auto;
+        margin-top: 100px;
+        width: 721px;
+        height: 455px;
+    }
+
+    .bigbox {
+        position: absolute;
+        height: 455px;
+        width: 500%;
+        border: 5px solid purple;
+    }
+
+    ul li {
+        float: left;
+    }
+
+    .left {
+        position: absolute;
+        margin: auto;
+        margin-left: 0;
+        margin-top: 220px;
+        left: 0;
+        z-index: 2;
+    }
+
+    .right {
+        position: absolute;
+        margin: auto;
+        margin-top: 220px;
+        margin-right: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    .box a {
+        z-index: 2;
+    }
+    .smallbox {
+        
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="left"><a href="#" id="left"><img src="./img/arrow-prev.png"></a></div>
+        <div class="right"><a href="#" id="right"><img src="./img/arrow-next.png"></a></div>
+        <div class="bigbox" id="bigbox">
+            <ul>
+                <li><a href="#"><img src="./img/focus.jpg"></a></li>
+                <li><a href="#"><img src="./img/focus1.jpg"></a></li>
+                <li><a href="#"><img src="./img/focus2.jpg"></a></li>
+                <li><a href="#"><img src="./img/focus3.jpg"></a></li>
+            </ul>
+        </div>
+        <span class="smallbox"></span>
+    </div>
+</body>
+
+</html>

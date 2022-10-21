@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        margin: 100px auto;
+        width: 500px;
+        border-collapse: collapse;
+        /* 是否合并为唯一的边框 */
+        text-align: center;
+    }
+
+    th,
+    td {
+        border: 1px solid #333;
+    }
+
+    thead tr {
+        height: 40px;
+        background-color: #ccc;
+    }
+</style>
+
+<body>
+    <!-- 1.表格标签必须要有table标签 -->
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    //第二二维数组中的格式
+    var data = [{
+        name: '苏丽旋',
+        subject: '地理',
+        scord: 100
+    }, {
+        name: '苏丽旋',
+        subject: '数学',
+        scord: 100
+    }, {
+        name: '苏丽旋',
+        subject: '语文',
+        scord: 100
+    }, {
+        name: '苏丽旋',
+        subject: '历史',
+        scord: 100
+    }];
+    // var str = new Array(data.length);
+    // var temp = 0;
+    //第三 每一个元素都必须先创建变量
+    var tbody = document.querySelector('tbody');
+    for (var i = 0; i < data.length; i++) {
+        var tr = document.createElement('tr');
+        // console.log(tr);
+        tbody.appendChild(tr);
+        for (var k in data[i]) {    //这里的keys是数字来的
+            var td = document.createElement('td');
+            td.innerHTML = data[i][k];
+            tr.appendChild(td);
+        }
+        // 创建删除元素
+        td = document.createElement('td');
+        td.innerHTML = '<a href="javascript:;">删除 </a>';
+        tr.appendChild(td);
+        // 创建监听系统
+        td.addEventListener('click', function () {
+            tbody.removeChild(this.parentNode);
+        })
+    }
+</script>
+
+</html>

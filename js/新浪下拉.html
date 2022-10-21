@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav {
+        margin: 100px;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+
+    .nav ul {
+        display: none;
+
+    }
+
+
+
+    .nav li a {
+        display: block;
+        text-decoration: none;
+        line-height: 50px;
+        height: 100%;
+        width: 100%;
+        color: #333;
+    }
+
+    .nav>li {
+        position: relative;
+        float: left;
+        text-align: center;
+        height: 41px;
+        width: 80px;
+    }
+
+    .nav ul li {
+        border-left: 1px solid #FECC5B;
+        border-bottom: 1px solid #FECC5B;
+        border-right: 1px solid #FECC5B;
+    }
+
+    .nav ul li a:hover {
+        background-color: #FFF5DA;
+    }
+</style>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li><a href="#">打开</a></li>
+                <li><a href="#">复制</a></li>
+                <li><a href="#">粘贴</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li><a href="#">打开</a></li>
+                <li><a href="#">复制</a></li>
+                <li><a href="#">粘贴</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li><a href="#">打开</a></li>
+                <li><a href="#">复制</a></li>
+                <li><a href="#">粘贴</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li><a href="#">打开</a></li>
+                <li><a href="#">复制</a></li>
+                <li><a href="#">粘贴</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script>
+    var nav = document.querySelector('.nav');
+    var lis = nav.children;
+    for (var i = 0; i < lis.length; i++) {
+        console.log(lis[i]);
+        lis[i].addEventListener('mouseover', function () {
+            this.children[1].style.display = 'block';
+        });
+        lis[i].addEventListener('mouseout', function () {
+            this.children[1].style.display = 'none';
+        });
+    }
+</script>
+
+</html>

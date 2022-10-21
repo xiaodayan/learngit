@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .father {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: purple;
+        height: 100px;
+        width: 100px;
+    }
+
+    span {
+        position: absolute;
+        background-color: red;
+        top: 150px;
+        height: 100px;
+        width: 100px;
+    }
+</style>
+
+<body>
+    <div class="father" id=" box-1"></div>
+    <span>大香肠</span>
+    <button id="btn01">移动</button>
+</body>
+<script>
+    var div = document.querySelector('div');
+    function animate(obj, target, callback) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var step = (target - obj.offsetLeft) / 10;
+            step > 0 ? Math.ceil(step) : Math.floor(step);
+            if (obj.offsetLeft == target) {
+                if (callback)
+                    callback();
+                clearInterval(timer);
+
+            }
+            else {
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }
+        }, 30);
+    }
+    animate(div, 1000);
+    var btn01 = document.querySelector('#btn01')
+    var daxiangchang = document.querySelector('span');
+    btn01.addEventListener('click', function () {
+        animate(daxiangchang, 500, function () {
+            daxiangchang.innerHTML = '小豆芽'
+        });
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        // const str = Array.from(Array(2), () => Array(11));
+        str = [[126.23, 43.303, 14447, 0.39183781, 10702, 1741, 20673, 693, 45, 2114, 0.554708764],
+        [126.33, 43.31, 16346, 0.404669538, 11633, 1741, 21791, 750, 47, 2009, 0.546509519]]
+        var max, min;
+        //    1.数据标准化
+        //计算每一列的总和函数
+        function getMax(num1, num2, str) {   //num2是第几列 num1一共有多少行
+            var end1 = str[0][num2];
+            for (let i = 1; i < num1; i++) {
+                if (end1 < str[i][num2]) {
+                    end1 = str[i][num2];
+                }
+            }
+            return end1;
+        }
+        function getMin(num1, num2, str) {   //num2是第几列 num1一共有多少行
+            var end2 = str[0][num2];
+            for (let i = 1; i < num1; i++) {
+                if (end2 < str[i][num2]) {
+                    end2 = str[i][num2];
+                }
+            }
+            return end2;
+        }
+
+
+        function standard(str) {
+            for (var i = 0; i < str[0].length; i++) {//i是第几列 j是第几行
+                max = getMax(2, i, str);
+                min = getMin(2, i, str);
+                for (let j = 0; j < str.length; j++) {
+                    if (str[j][i] >= 0)
+                        str[j][i] = (str[j][i] - min) / (max - min);
+                    else
+                        str[j][i] = (max - str[j][i]) / (max - min);
+                }
+                return str;
+            }
+        }
+        //    2.计算各指标在各个方案的比重
+
+        //    求和
+        function getSum(num1, num2, str) {  //num2是第几列 num1一共有多少行
+            var sum = 0;
+            for (let i = 0; i < num1; i++) {
+                sum = sum + str[i][num2];
+            }
+            return sum;
+        }
+
+
+
+        function getproportion(str) {
+            var sum = 0;
+            for (var i = 0; i < str[0].length; i++) { //i是第几列
+                sum = getSum(11, 21, str);
+                for (let j = 0; j < str.length; j++) {
+                    str[j][i] = str[j][i] / sum;
+                }
+            }
+            return str;
+        }
+
+        //    3.计算信息熵
+        function entropy(str) {
+            var e = new Array(11);
+            for (let i = 0; i < str.length; i++) {
+                for (let j = 0; j < str[0].length; j++) {
+                    e[i][j] = -1 / Math.log(str[0].length) * (str[i][j] * Math.log(str[i][j]));
+                }
+            }
+            return e;
+        }
+        //    4.计算权重
+
+        function getWright(e, str) {
+            var w = Array(11);
+            for (let i = 0; i < str.length; i++) {
+                for (let j = 0; j < str[0].length; j++) {
+                    w[i][j] = (1 - e[i][j]) / (11 - Math.max(e[i]));
+                }
+            }
+            return w;
+        }
+        //    5.综合评价
+        function getEnd(w) {
+            var assessment
+            for (let i = 0; i < w.length; i++)
+                assessment = Math.max(w[i]);
+            return assessment;
+        }
+
+        str = standard(str);
+        str = getproportion(str);
+        var e = entropy(str);
+        var w = getWright(e);
+        var assessment = getEnd(w);
+        console.table(assessment);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
